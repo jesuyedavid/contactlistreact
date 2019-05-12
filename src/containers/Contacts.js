@@ -5,7 +5,7 @@ import '../Contacts.css';
 import AddContact from './AddContact';
 
 const contactsAPI = 'https://demo1443058.mockable.io/codeproject_tutorial/api/contacts';
-		
+
 class Contact extends Component {
 
   constructor(props) {
@@ -23,8 +23,12 @@ class Contact extends Component {
   }
 
   handleSearch(searchText) {
-   
-    this.setState({searchResult: [], searchText: searchText});
+
+    this.setState({
+      searchResult: [],
+      searchText: searchText
+    });
+
     this.state.contactList.map(contact => {
 
       if(searchContact(contact, searchText)) {
@@ -40,16 +44,16 @@ class Contact extends Component {
          method: 'GET',
          headers: new Headers(),
          mode: 'cors',
-         cache: 'default' 
+         cache: 'default'
       };
 
     fetch(contactsAPI, init)
       .then( response => response.json())
-      .then( 
-        data => this.setState( 
+      .then(
+        data => this.setState(
           prevState => ({
           contactList: [...data.contacts]
-          }) 
+          })
         )
       )
     }
@@ -78,8 +82,8 @@ class Contact extends Component {
          	<br />
           	<ul className="list-group" id="contact-list">
            		{ this.returnContactList().map(
-                  (contact) => 
-                  <li key={contact.email} className="list-group-item"> 
+                  (contact) =>
+                  <li key={contact.email} className="list-group-item">
                     <ContactCard contact = {contact}/>
                   </li>
               	)}

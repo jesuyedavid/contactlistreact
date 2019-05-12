@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Contacts from './containers/Contacts.jsx'
+import Contacts from './containers/Contacts.js'
 
 /*App component starts here */
 class App extends Component {
@@ -15,9 +15,9 @@ class App extends Component {
           </div>
         </div>
       </div>
-    
-  
-     
+
+
+
     );
   }
 }
